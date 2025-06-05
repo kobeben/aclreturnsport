@@ -1,0 +1,277 @@
+:root {
+    --gradient-start: #C084FC; /* 浅紫 */
+    --gradient-end: #7E22CE;   /* 深紫 */
+    --bg-light: #FFFFFF;
+    --bg-ultra-light: #F9FAFB;
+    --text-dark: #1F2937;
+    --text-medium: #4B5563;
+    --text-light: #6B7280;
+    --border-radius: 20px;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --card-hover-shadow: 0 8px 25px rgba(126, 34, 206, 0.1);
+    --accent-green: #10B981;
+    --accent-yellow: #F59E0B;
+    --accent-red: #EF4444;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background-color: #F3F4F6; /* 更浅的背景 */
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.gradient-text {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: 700; /* 确保渐变文字足够粗以便清晰显示 */
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    grid-auto-rows: minmax(180px, auto); /* 确保行有最小高度 */
+}
+
+.bento-card {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 防止内容溢出 */
+}
+
+.bento-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.bento-card h2 {
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.bento-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.bento-card p {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    margin-bottom: 15px;
+}
+.bento-card p:last-child {
+    margin-bottom: 0;
+}
+
+.bento-card .small-text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: auto; /* 尝试将小文本推到底部 */
+}
+
+.card-icon {
+    margin-bottom: 15px;
+    color: var(--gradient-end); /* 使用渐变色的深色端作为图标颜色 */
+}
+
+.card-icon i { /* Lucide icons are SVGs */
+    width: 32px;
+    height: 32px;
+    stroke-width: 1.5;
+}
+
+/* Grid spanning */
+.card-large { grid-column: span 2; grid-row: span 2; }
+.card-xlarge { grid-column: span 2; grid-row: span 1; } /* 调整为更常见的横向大卡片 */
+.card-medium { grid-column: span 1; grid-row: span 1; }
+.card-small { grid-column: span 1; grid-row: span 1; }
+
+
+/* Specific card styles */
+.overview .key-figures {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    text-align: center;
+}
+.overview .key-figures > div {
+    flex: 1;
+}
+.overview .figure {
+    font-size: 2.5rem;
+    display: block;
+}
+.overview .label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.methodology .method-list, .phenotypes .phenotype-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.9rem;
+}
+.methodology .method-list li, .phenotypes .phenotype-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.icon-bullet {
+    margin-right: 8px;
+    color: var(--gradient-start);
+    width: 18px;
+    height: 18px;
+}
+.phenotypes .note {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 10px;
+    background-color: var(--bg-ultra-light);
+    padding: 8px;
+    border-radius: calc(var(--border-radius) / 2);
+}
+
+.core-treatments .treatment-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.core-treatments .treatment-item {
+    background-color: var(--bg-ultra-light);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: background-color 0.3s;
+}
+.core-treatments .treatment-item:hover {
+    background-color: #e9d5ff; /* 浅紫色悬停 */
+}
+.core-treatments .item-icon {
+    display: block;
+    margin: 0 auto 8px auto;
+    width: 28px;
+    height: 28px;
+    color: var(--gradient-end);
+}
+
+
+.treatment-categories .category-item {
+    margin-bottom: 15px;
+}
+.treatment-categories .category-name {
+    font-weight: 500;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 5px;
+}
+.progress-bar-container {
+    width: 100%;
+    background-color: #E5E7EB;
+    border-radius: 5px;
+    height: 10px;
+    margin: 5px 0;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    border-radius: 5px;
+}
+.progress-bar.uncertain-bg { background: linear-gradient(to right, #FBBF24, #F59E0B); }
+.progress-bar.not-appropriate-bg { background: linear-gradient(to right, #F87171, #EF4444); }
+
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 15px; /* 胶囊形状 */
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--bg-light);
+    margin-bottom: 8px;
+}
+.tag.appropriate { background-color: var(--accent-green); }
+.tag.uncertain { background-color: var(--accent-yellow); }
+.tag.not-appropriate { background-color: var(--accent-red); }
+
+.specific-rec .effect-size {
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: var(--text-medium);
+}
+.specific-rec .effect-size strong {
+    font-size: 1.3em; /* 使数字更突出 */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .card-large { grid-column: span 2; grid-row: span 1; } /* 在中等屏幕上，大卡片不再是方形 */
+    .card-xlarge { grid-column: span 2; grid-row: span 1;}
+}
+
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    .bento-grid {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+    .card-large, .card-xlarge, .card-medium, .card-small {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .overview .key-figures {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Citation style */
+[cite] {
+    /* font-size: 0.7em;
+    vertical-align: super;
+    color: var(--text-light); */
+    /* For this design, citations are for reference in code, not display */
+}
